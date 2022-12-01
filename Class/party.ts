@@ -1,26 +1,31 @@
-import Cup from "./cup";
-import Dice from "./dice";
 import Player from "./player";
-
 export default class Party {
-    private _player: Player;
-    private _cup: Cup;
-    private _dice:Dice;
+  private _player: Player[];
 
-    initialization(player:Player, cup:Cup, dice:Dice):void
-    {
-        this._player = player;
-        this._cup = cup;
-        this._dice = dice;
-    }
+  constructor(...player: Player[]) {
+    this._player = player;
+  }
 
-    runParty()
-    {
+  runParty() {
+    let hightScore: number = 0;
+    this._player.forEach((element) => {
+      element.play();
+      console.log(element.showScore());
+    });
+    this.showWinner();
+  }
 
-    }
-
-    showWinner():string
-    {
-        if()
-    }
+  showWinner() {
+    let showWinner: number = 0;
+    let score: number[] = [];
+    this._player.forEach((element) => {
+      score.push(element._score);
+    });
+    showWinner = Math.max(...score);
+    this._player.forEach((element) => {
+      if (element._score == showWinner) {
+        console.log(`${element._nom} a gagné !`);
+      }
+    });
+  }
 }

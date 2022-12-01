@@ -20,6 +20,6 @@ export default class Player {
 
     showScore()
     {
-        return `${this._nom} a fait ${this._score}`;
+        return `${this._nom} a lancé ses dés et le résultat final est ${this._score}`;
     }
 }
