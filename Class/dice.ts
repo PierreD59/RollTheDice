@@ -13,7 +13,3 @@ export default class Dice {
     return this._value;
   }
 }
-
-const dice: Dice = new Dice(6);
-
-console.log(dice.roll);
